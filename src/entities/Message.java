@@ -1,5 +1,6 @@
 package entities;
 
+//Message entity class
 public class Message {
 
     private String message_id;

@@ -7,6 +7,7 @@ import javax.crypto.spec.DESKeySpec;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
+// Crypto algorithms and its helper functions.
 public class CryptoHelper {
 
     SecretKey sKey;
@@ -20,6 +21,7 @@ public class CryptoHelper {
         initCiphers();
     }
 
+    // Moving string elements to byte array indices.
     public static byte[] stringToByteArray(String inp) {
         byte[] byteArray = new byte[inp.length()];
         for (int i = 0; i < inp.length(); i++) {
@@ -28,6 +30,7 @@ public class CryptoHelper {
         return byteArray;
     }
 
+    // Converting byte array elements to string characters.
     public static String byteArrayToString(byte[] inputArray) {
         String res = "";
         for (byte b : inputArray) {
@@ -36,10 +39,12 @@ public class CryptoHelper {
         return res;
     }
 
+    // Byte to string converter with masking.
     public static String byteToString(byte aByte) {
         return String.valueOf((char) (aByte & 0xFF));
     }
 
+    // DES cipher algorithm and ECB mode with PKCS5 padding.
     public void initCiphers() throws Exception {
         this.encCipher = Cipher.getInstance("DES/ECB/PKCS5Padding");
         this.decCipher = Cipher.getInstance("DES/ECB/PKCS5Padding");
@@ -49,6 +54,7 @@ public class CryptoHelper {
 
     }
 
+    // Firstly encodes the input string and encrypts it. Then, it encodes the encrypted text again.
     public String encrypt(String rawString) {
 
         String encodedString = new String(Base64.getEncoder().encode(rawString.getBytes(StandardCharsets.UTF_16BE)));
@@ -63,6 +69,7 @@ public class CryptoHelper {
         return new String(Base64.getEncoder().encode(encryptedEncodedString.getBytes(StandardCharsets.UTF_16BE))); // encodedEncryptedEncodedString
     }
 
+    // Firstly decodes the cipher text and decrypts it. Then, it decodes the decrypted text again.
     public String decrypt(String encodedEncryptedEncodedString) {
 
         byte[] encryptedEncodedByteArray = Base64.getDecoder().decode(encodedEncryptedEncodedString);

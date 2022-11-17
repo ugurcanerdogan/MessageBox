@@ -14,9 +14,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- * @author uqi
- */
+// File reader methods and other helper functions for creating user and message lists.
 public class FileReadHelper {
 
     public static String readInput(String inputPath) throws IOException {
@@ -24,6 +22,7 @@ public class FileReadHelper {
         return Files.readString(fileName);
     }
 
+    // Reads users.data info and creates an arrayList of User objects.
     public static ArrayList<User> createUserList(String inputPath) {
         ArrayList<User> userList = new ArrayList<>();
         try {
@@ -41,6 +40,7 @@ public class FileReadHelper {
         return userList;
     }
 
+    // Fetches every User object's username field from the users arrayList and creates usernamesArray.
     public static String[] createUsernamesArray(ArrayList<User> userList) {
         String[] userArray = new String[userList.size()];
         int i = 0;
@@ -51,6 +51,7 @@ public class FileReadHelper {
         return userArray;
     }
 
+    // Reads messages.data info and creates an arrayList of Message objects.
     public static ArrayList<Message> createMessageList(String inputPath, ArrayList<User> userList) {
         ArrayList<Message> messageList = new ArrayList<>();
 
@@ -79,6 +80,7 @@ public class FileReadHelper {
         return messageList;
     }
 
+    // Checks whether the message to be created has already appeared in the list of messages.
     public static boolean messageIdUniquenessCheck(String messageId, ArrayList<Message> messageList) {
         for (Message message : messageList) {
             if (message.getMessage_id().equals(messageId)) {
@@ -88,6 +90,7 @@ public class FileReadHelper {
         return true;
     }
 
+    // Checks whether the user to be created has already appeared in the list of users.
     public static boolean usernameUniquenessCheck(String username, String[] usernamesArray) {
         for (String savedUsername : usernamesArray) {
             if (savedUsername.equals(username)) {

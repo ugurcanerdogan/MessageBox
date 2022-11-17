@@ -4,6 +4,7 @@
  */
 package entities;
 
+//User entity class
 public class User {
 
     private String username;

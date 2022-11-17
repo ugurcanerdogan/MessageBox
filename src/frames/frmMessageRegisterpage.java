@@ -18,8 +18,8 @@ public class frmMessageRegisterpage extends javax.swing.JFrame {
     ArrayList<Message> messageList;
     String[] usernamesArray;
     CryptoHelper cryptoHelper;
-    String userDataFilePath = "src\\users.data";
-    String messageDataFilePath = "src\\messages.data";
+    String userDataFilePath = "users.data";
+    String messageDataFilePath = "messages.data";
 
     /**
      * Creates new form frmRegisterpage
@@ -137,7 +137,6 @@ public class frmMessageRegisterpage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void resetFields() {
-        comboboxUsers.setSelectedIndex(-1);
         txtFieldMsgCodename.setText("");
         txtAreaMessage.setText("");
         psw1.setText("");

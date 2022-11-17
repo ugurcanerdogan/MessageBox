@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+// File writer method for saving users and messages.
 public class FileWriteHelper {
 
     public static void writeNewLine(String path, String inputMessage) throws IOException {

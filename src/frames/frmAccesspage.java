@@ -20,8 +20,8 @@ public class frmAccesspage extends javax.swing.JFrame {
     ArrayList<Message> messageList;
     String[] usernamesArray;
     CryptoHelper cryptoHelper;
-    String userDataFilePath = "src\\users.data";
-    String messageDataFilePath = "src\\messages.data";
+    String userDataFilePath = "users.data";
+    String messageDataFilePath = "messages.data";
     /**
      * Creates new form frmAccesspage
      */
